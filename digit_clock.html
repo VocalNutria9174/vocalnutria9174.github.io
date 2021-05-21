@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Digital Clock</title>
+<link rel="icon" href="https://images.eq3.com/product-definitions/cjuedn73z05650162zt3g6fu8/instance/cjv6ukkqm02p30118culhn925/THUMBNAIL/4ad0d9c2-7dc6-40cc-9a61-df08bcce4e0e.jpg">
+<style type="text/css">
+body {
+  font-family: Arial, San-Serif;
+  font-size: 10px;
+}
+#ws { width: 100%; }
+@media(min-width: 780px){ #ws { max-width: 760px; margin: 0 auto; } }
+
+#header {background:#ddd; padding: 5px;border-radius:.5em .5em 0 0;}
+#content {background:white; padding: 5px; }
+h1 {margin:0px;}
+#header a{text-decoration:none;color:#888;}
+#header a:hover {color:black;text-decoration:none;}
+
+.bow {background:white;color:black;padding:0 .1em;}
+.wob {background:black;color:white;padding:0 .1em;border-radius:50%;}
+#lbg {background:white;}
+#bc span, #bc a {display:inline-block;padding:.5em 1em;}
+#bc span {background:white;border:1px solid #888; border-bottom: 1px solid white;}
+#cid {float:left;}
+#hsup {float:right;text-align:right;}
+.ad-b {margin-top:1em;}
+.clear {clear:both;}
+
+#dclock {text-align:center;color:#666;font-family: helvetica, arial, sans-serif;}
+#timer {font-size:3em;}
+form {margin-top:1em;}
+
+.blink {display:inline-block;cursor:pointer;background:#ccc;border:1px solid #999;padding:0 5px;}
+#clink {background:#eee;font-family:Consolas,Monaco,Courier New;}
+</style>
+<script type="text/javascript">
+var timer, alarm;
+
+function prepareSound(){
+  var butsnd = document.getElementById("bsnd");
+  if (butsnd.getAttribute("data-sound-loaded") == 0){
+    butsnd.setAttribute("data-sound-loaded", 1);
+    snd = document.getElementById('ce-snd');
+    snd.play();
+    snd.volume = 0.0;
+    snd.pause();
+    snd.volume = 1.0;
+  }
+  if (butsnd.getAttribute("data-sound-status") == 0){
+    butsnd.src = "/sound.png";
+    butsnd.setAttribute("data-sound-status", 1);
+    butsnd.setAttribute("title", "Sound On");
+  }
+  else {
+    butsnd.src = "/no-sound.png";
+    butsnd.setAttribute("data-sound-status", 0);
+    butsnd.setAttribute("title", "Sound Off");
+  }
+}
+
+function setAlarm(){
+   var mi = dselect.m.options.selectedIndex;
+   var m = dselect.m.options[mi].value;
+
+   clearTimeout(alarm);
+   alarm = setTimeout(function(){playBeep()},+m*1000*60);
+}
+function setClock(){
+    timer = setInterval(function (){
+    	var d = new Date();
+	var h = d.getHours();
+	if (h>=12){h = h%12==0?12:h%12; a = 'PM';}
+	else { a = 'AM';}
+	var m = d.getMinutes();
+	var s = d.getSeconds();
+    	document.getElementById("timer").innerHTML = '<span id="h">' + ('00'+h).slice(-2) + '</span>:<span id="m">' + ('00'+m).slice(-2)+ '</span>:<span id="s">' + ('00'+s).slice(-2) + '</span> '+a;
+	},
+	1000);
+}
+function playBeep(){
+   if (document.getElementById("bsnd").getAttribute("data-sound-status")==1){
+      snd = document.getElementById('ce-snd');
+      //snd.volume = 1.0;
+      snd.play();
+      snd.loop = true;
+      setTimeout(function () {snd.pause();}, 3000);
+   }
+   //reset change
+   dselect.m.options.selectedIndex = 0;
+   clearTimeout(alarm);
+}
+</script>
+</head>
+<body>
+
+<div id="dclock">
+<div id="timer"><script type="text/javascript">setClock();</script></div>
+<form name="dselect" id="dselect">
+<label>
+<br/>
+
+<audio id="ce-snd" preload="auto">
+   <source src="/beep.mp3" type='audio/mpeg; codecs="mp3"'>
+   <source src="/beep.ogg" type='audio/ogg; codecs="vorbis"'>
+</audio>
+    </body>
+    </html>

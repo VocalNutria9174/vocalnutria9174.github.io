@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Stopwatch</title>
+<link rel="icon" href="https://image.flaticon.com/icons/png/512/31/31048.png">
+<meta name="description" content="Free online stopwatch/ count-up timer clock to measure elapsed time in hours, minutes and seconds."/>
+<meta charset="utf-8" />
+<link rel="canonical" href="https://beepmyclock.com/stopwatch"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body {
+  font-family: Sans, Google-Serif;
+  font-size: 14px;
+}
+
+#dclock {text-align:center;color:
+#00cc00;font-family: helvetica, arial, sans-serif;}
+#timer {font-size:5em;}
+form {margin-top:3em;}
+</style>
+<script type="text/javascript">
+var timer;
+function setClock(){
+   timer = setInterval(function () {startTimer()}, 1000);
+   document.getElementById("bstart").disabled = true;
+}
+
+    
+    function resetClock(reset){
+   if (reset) {
+      h = m = s = '00';
+      document.getElementById("timer").innerHTML = '<span id="h">' + h+ '</span>:<span id="m">' + m+ '</span>:<span id="s">' + s+ '</span>';
+   }
+   else {
+      document.getElementById('ce-snd').play();
+   }
+   clearInterval(timer);
+   document.getElementById("bstart").disabled = false;
+}
+function startTimer(){
+   var hours = parseInt(document.getElementById("h").textContent || document.getElementById("h").innerText);
+   var mins = parseInt(document.getElementById("m").textContent || document.getElementById("m").innerText);
+   var secs = parseInt(document.getElementById("s").textContent || document.getElementById("s").innerText);
+   secs += 1;
+   if (secs == 60){
+      secs = 0;
+      mins += 1;
+      if (mins == 60){
+          mins = 0;
+          hours += 1;
+      }
+   }
+      secs = ('00'+secs).slice(-2);
+      mins = ('00'+mins).slice(-2);
+      hours = ('00'+hours).slice(-2);
+      document.getElementById("timer").innerHTML = '<span id="h">' + hours + '</span>:<span id="m">' + mins + '</span>:<span id="s">' + secs + '</span>'; 
+}
+</script>
+</head>
+<body>
+
+<div id="dclock">
+<div id="timer"><span id="h">00</span>:<span id="m">00</span>:<span id="s">00</span></div>
+<form>
+<input id="bstart" type="button" value="Start" onclick="setClock()"/>
+    
+<input id="bstop" type="button" value="Stop" onclick="resetClock(0)"/>
+    
+<input id="breset" type="button" value="Reset" onclick="resetClock(1)"/>
+</form>
+
+<audio id="ce-snd" preload="auto">
+   <source src="/beep.mp3" type='audio/mpeg; codecs="mp3"'>
+   <source src="/beep.ogg" type='audio/ogg; codecs="vorbis"'>
+</audio>
+</div>
+
+</body>
+</html>

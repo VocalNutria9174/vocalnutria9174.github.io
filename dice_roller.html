@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content
+        ="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+ <link rel="icon" href="dice-icon.png">   
+  
+    <style>
+        .container {
+            width: 70%;
+            margin: auto;
+            text-align: center;
+        }
+  
+        .dice {
+            text-align: center;
+            display: inline-block;
+            margin: 10px;
+        }
+  
+        body {
+            background-color: #042f4b;
+            margin: 0;
+        }
+  
+        h1 {
+            margin: 30px;
+            font-family: "Lobster", cursive;
+            text-shadow: 5px 0 #232931;
+            font-size: 4.5rem;
+            color: #4ecca3;
+            text-align: center;
+        }
+  
+        p {
+            font-size: 2rem;
+            color: #4ecca3;
+            font-family: "Indie Flower", cursive;
+        }
+  
+        img {
+            width: 100%;
+        }
+  
+        .bottom {
+            padding-top: 30px;
+        }
+  
+         .button {
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+           background-color: white; 
+           color: black; 
+           border: 2px solid #1aff1a;
+           font-family: Verdana, sans-serif;        
+        }
+
+        .button1:hover {
+           background-color: #1aff1a;
+           color: white;
+        }
+    </style>
+</head>
+  
+<body>
+    <div class="container">
+  
+        <div class="dice">
+            <img class="img1" src="dice6.png">
+        </div>
+  
+        <div class="dice">
+            <img class="img2" src="dice6.png">
+        </div>
+    </div>
+  
+    <div class="container roll">
+        <button type="button" class="button button1"
+            onClick="rollTheDice()">
+            <i><b>Roll</b></i>
+        </button>
+    </div>
+  
+    <script>
+  
+  
+        // Function to roll the dice
+        function rollTheDice() {
+            setTimeout(function () {
+                var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+                var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+  
+                document.querySelector(".img1").setAttribute("src",
+                    "dice" + randomNumber1 + ".png");
+  
+                document.querySelector(".img2").setAttribute("src",
+                    "dice" + randomNumber2 + ".png");
+  
+                if (randomNumber1 === randomNumber2) {
+                    document.querySelector("h1").innerHTML = "Draw!";
+                }
+  
+                else if (randomNumber1 < randomNumber2) {
+                    document.querySelector("h1").innerHTML
+                        = (player2 + " WINS!");
+                }
+  
+                else {
+                    document.querySelector("h1").innerHTML
+                        = (player1 + " WINS!");
+                }
+            }, 2500);
+        }
+    </script>
+</body>
+  
