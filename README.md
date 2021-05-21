@@ -1,4 +1,6 @@
-#The Epic Site
+#Hello!
+
+Welcome to the Epic Site!
 
 This is my first ever website!
 Enjoy!
