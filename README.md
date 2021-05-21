@@ -1,3 +1,7 @@
-# epic-site
+#The Epic Site
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/epic-site)
+This is my first ever website!
+Enjoy!
+
+(If you have comments, suggestions, or problems, Please let me know in the issues page. Thanks!)
+:)
