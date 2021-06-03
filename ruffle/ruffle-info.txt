@@ -1,9 +1,0 @@
-hey. 
-
-so let me guess, you were digging through the source code of the website, and you found this, and your thinking to yourself: "What's Ruffle???". Well, Ruffle is
-
-a flash emulator for flash games. Manily Ruffle is for flash games on websites. So yeah. And to make this folder page, I had to make a text file, So yeah.
-
-
-
-:)
