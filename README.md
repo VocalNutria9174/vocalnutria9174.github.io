@@ -1,4 +1,4 @@
-# NOTICE: I will not be updating the site that much during the summer, so yeah. But I will keep updating the site as often as I can!!! Thanks!!!!!
+# NOTICE: Updates are being added often, so keep checking out this github page for more info!!!
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Welcome to the Epic Site!
 
