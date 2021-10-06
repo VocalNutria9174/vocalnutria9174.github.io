@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+	<script>
+	btn.addEventListener('click', function() {
+  let promise = Notification.requestPermission();
+  // wait for permission
+})
+	</script>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,11 +55,41 @@
         <div class="alert fade alert-simple alert-info alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
          
           <i class="start-icon  fa fa-info-circle faa-shake animated"></i>
-          <strong class="font__weight-semibold">Heads up!</strong> The Weather page will be deleted on October 14, 2021. Go to the <a href="weather" target="_self">Weather Page</a> for more info.
+          <strong class="font__weight-semibold">Heads up!</strong> The Weather page will be deleted on October 14, 2021. Go to the <a href="weather" target="_self" onclick="notifyMe()">Weather Page</a> for more info.
         </div>
      
   </div>
 </section>
+	
+	<script>
+		function notifyMe() {
+  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    var notification = new Notification("Oh hey! You found me! Good job. Here is a cookie: 🍪");
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        var notification = new Notification("Oh hey! You found me! Good job. Here is a cookie: 🍪");
+      }
+    });
+  }
+
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them any more.
+}
+
+	</script>
+	
   <style>
    
 
