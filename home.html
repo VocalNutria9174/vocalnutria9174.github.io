@@ -24,12 +24,12 @@
 				d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
 				fill="currentColor" class="octo-body"></path>
 		</svg>
+        </a>
         </head>
-    
-<body>
-    <div class="button button2">
-  <a href="weather">Weather</a>
-</div>
+             
+<div id="success" class="button button2">Weather</div>
+<div class="notify"><span id="notifyType" class=""></span></div>
+
 <div class="button button3">
 <a href="game">Games</a>
 </div>
@@ -42,232 +42,66 @@
 	<div class="button button5">
     <a href="about">About</a>
         </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+</script>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.2.1/font-awesome-animation.min.css">
-
-<section> 
-          
-      <div class="col-sm-12">
-        <div class="alert fade alert-simple alert-info alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
-         
-          <i class="start-icon  fa fa-info-circle faa-shake animated"></i>
-          <strong class="font__weight-semibold">Heads up!</strong> The Weather page will be deleted on October 8th, 2021. Go to the <a href="weather" target="_self" onclick="notifyMe()">Weather Page</a> for more info.
-        </div>
-     
-  </div>
-</section>
-	
-	<script>
-		function notifyMe() {
-  // Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
-  }
-
-  // Let's check whether notification permissions have already been granted
-  else if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
-    var notification = new Notification("Oh hey! You found me! Good job. Here is a cookie: 🍪");
-  }
-
-  // Otherwise, we need to ask the user for permission
-  else if (Notification.permission !== "denied") {
-    Notification.requestPermission().then(function (permission) {
-      // If the user accepts, let's create a notification
-      if (permission === "granted") {
-        var notification = new Notification("Oh hey! You found me! Good job. Here is a cookie: 🍪");
-      }
-    });
-  }
-
-  // At last, if the user has denied notifications, and you
-  // want to be respectful there is no need to bother them any more.
+<style>
+  *{
+  
+  font-family:Helvetica;
+  margin:0;
+  padding:0;  
 }
 
-	</script>
-	
-  <style>
-   
-
-.alert>.start-icon {
-    margin-right: 0;
-    min-width: 20px;
-    text-align: center;
+#success{
+  background:#ffffff;
+  color:#000000;  
 }
 
-.alert>.start-icon {
-    margin-right: 5px;
+#success:hover {
+  background-color: #008CBA;
+  color: white;
 }
 
-.greencross
-{
-  font-size:18px;
-      color: #25ff0b;
-    text-shadow: none;
+.notify{  
+  position:absolute;
+  top:0px;
+  width:100%;
+  height:0;  
+  box-sizing:border-box;
+  color:white;  
+  text-align:center;
+  background:rgba(0,0,0,.6);
+  overflow:hidden;
+  box-sizing:border-box;
+  transition:height .2s;
 }
 
-.alert-simple.alert-success
-{
-  border: 1px solid rgba(36, 241, 6, 0.46);
-    background-color: rgba(7, 149, 66, 0.12156862745098039);
-    box-shadow: 0px 0px 2px #259c08;
-    color: #0ad406;
-  text-shadow: 2px 1px #00040a;
-  transition:0.5s;
-  cursor:pointer;
-}
-.alert-success:hover{
-  background-color: rgba(7, 149, 66, 0.35);
-  transition:0.5s;
-}
-.alert-simple.alert-info
-{
-  border: 1px solid rgba(6, 44, 241, 0.46);
-    background-color: rgba(7, 73, 149, 0.12156862745098039);
-    box-shadow: 0px 0px 2px #0396ff;
-    color: #0396ff;
-  text-shadow: 2px 1px #00040a;
-  transition:0.5s;
-  cursor:pointer;
+#notifyType:before{
+  display:block;
+  margin-top:15px; 
+  
 }
 
-.alert-info:hover
-{
-  background-color: rgba(7, 73, 149, 0.35);
-  transition:0.5s;
+.active{  
+  height:50px;
 }
 
-.blue-cross
-{
-  font-size: 18px;
-    color: #0bd2ff;
-    text-shadow: none;
+.success:before{
+  Content:"This Page has been Discontinued. Thanks for using this page.";
 }
-
-.alert-simple.alert-warning
-{
-      border: 1px solid rgba(241, 142, 6, 0.81);
-    background-color: rgba(220, 128, 1, 0.16);
-    box-shadow: 0px 0px 2px #ffb103;
-    color: #ffb103;
-    text-shadow: 2px 1px #00040a;
-  transition:0.5s;
-  cursor:pointer;
-}
-
-.alert-warning:hover{
-  background-color: rgba(220, 128, 1, 0.33);
-  transition:0.5s;
-}
-
-.warning
-{
-      font-size: 18px;
-    color: #ffb40b;
-    text-shadow: none;
-}
-
-.alert-simple.alert-danger
-{
-  border: 1px solid rgba(241, 6, 6, 0.81);
-    background-color: rgba(220, 17, 1, 0.16);
-    box-shadow: 0px 0px 2px #ff0303;
-    color: #ff0303;
-    text-shadow: 2px 1px #00040a;
-  transition:0.5s;
-  cursor:pointer;
-}
-
-.alert-danger:hover
-{
-     background-color: rgba(220, 17, 1, 0.33);
-  transition:0.5s;
-}
-
-.danger
-{
-      font-size: 18px;
-    color: #ff0303;
-    text-shadow: none;
-}
-
-.alert-simple.alert-primary
-{
-  border: 1px solid rgba(6, 241, 226, 0.81);
-    background-color: rgba(1, 204, 220, 0.16);
-    box-shadow: 0px 0px 2px #03fff5;
-    color: #03d0ff;
-    text-shadow: 2px 1px #00040a;
-  transition:0.5s;
-  cursor:pointer;
-}
-
-.alert-primary:hover{
-  background-color: rgba(1, 204, 220, 0.33);
-   transition:0.5s;
-}
-
-.alertprimary
-{
-      font-size: 18px;
-    color: #03d0ff;
-    text-shadow: none;
-}
-
-.alert:before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: calc(100% - 44px);
-    border-left: 1px solid;
-    border-right: 2px solid;
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px;
-    left: 0;
-    top: 50%;
-    transform: translate(0,-50%);
-      height: 20px;
-}
-
-.fa-times
-{
--webkit-animation: blink-1 2s infinite both;
-	        animation: blink-1 2s infinite both;
-}
-
-
-/**
- * ----------------------------------------
- * animation blink-1
- * ----------------------------------------
- */
-@-webkit-keyframes blink-1 {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-  25%,
-  75% {
-    opacity: 0;
-  }
-}
-@keyframes blink-1 {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-  25%,
-  75% {
-    opacity: 0;
-  }
-}
-  </style>
+</style>
+<script>
+  $("#success").click(function () {
+  $(".notify").toggleClass("active");
+  $("#notifyType").toggleClass("success");
+  
+  setTimeout(function(){
+    $(".notify").removeClass("active");
+    $("#notifyType").removeClass("success");
+  },2000);
+});
+</script>    
 	
     <p class="mainFont">Click one of the buttons to go to different pages of the site!!! This code was made in HTML.</p>
     <p class="mainFont">Made by: VocalNutria9174</p>
