@@ -67,7 +67,7 @@
   color: black;
 }
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300&display=swap" rel="stylesheet">
 </style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -87,12 +87,12 @@
   padding:0;  
 }
 
-#success{
+#suces{
   background:#ffffff;
   color:#000000;  
 }
 
-#success:hover {
+#suces:hover {
   background-color: #008CBA;
   color: white;
 }
@@ -121,18 +121,18 @@
   height:50px;
 }
 
-.success:before{
+.suces:before{
   Content:"This Page has been Discontinued. Thanks for using this page.";
 }
 </style>
 <script>
-  $("#success").click(function () {
+  $("#suces").click(function () {
   $(".notify").toggleClass("active");
-  $("#notifyType").toggleClass("success");
+  $("#notifyType").toggleClass("suces");
   
   setTimeout(function(){
     $(".notify").removeClass("active");
-    $("#notifyType").removeClass("success");
+    $("#notifyType").removeClass("suces");
   },2000);
 });
 </script>    
