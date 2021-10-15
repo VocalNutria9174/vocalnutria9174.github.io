@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/512px-Circle-icons-tools.svg.png"> 
-    
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="button button1">    
     <a href="home">Home</a>
     </div>
@@ -90,8 +90,11 @@ popupWindow = window.open(url,'action','height=550,width=800,left=100,top=100,re
     <input type=hidden name=oe value=UTF-8>
     <table bgcolor="#FFFFFF">
         <input Type=text name=q id=q size=31 maxlength=255 value="" title="Search Bar" placeholder="Search the Web Via Google!">
+        <span class="material-icons">
+search
         <input type=image src="search-icon.png" value="Search" height="50" width="51" align="center" onclick="basicPopup('https://www.google.bg/search?q=' + document.getElementById('q').value); return false" title="Search!"> <font size=-1>
-        <input type=hidden name=domains value="google">
+            </span>
+            <input type=hidden name=domains value="google">
         <input type=hidden name=sitesearch value="google.com" checked>
     </font>
 
