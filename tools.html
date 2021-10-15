@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/512px-Circle-icons-tools.svg.png"> 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="button button1">    
-    <a href="home">Home</a>
-    </div>
-<div class="button button3">
-    <a href="clock">Time</a>
-    </div>
-<div class="button button4">
-    <a href="game">Games</a>
-    </div>
-<style>
+<a href="home" class="button button1">Home</a>
+  
+<a href="game" class="button button3">Games</a>
+  
+    <a href="clock" class="button button4">Time</a>
 
-    body  {
-  background-image: url("snow64b.gif");
-  background-color: #cccccc;
-}
+<style>
+  h1 {
+    color: white;
+  }
+  
     .mainFont {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -90,7 +88,7 @@ popupWindow = window.open(url,'action','height=550,width=800,left=100,top=100,re
     <input type=hidden name=oe value=UTF-8>
     <table bgcolor="#FFFFFF">
         <input Type=text name=q id=q size=31 maxlength=255 value="" title="Search Bar" placeholder="Search the Web Via Google!">
-        <input type=image src="search-icon.png" value="Search" height="50" width="51" align="center" onclick="basicPopup('https://www.google.bg/search?q=' + document.getElementById('q').value); return false" title="Search!"> <font size=-1>
+        <input type=image src="search-icon.png" value="Search" height="50" width="51" align="center" onclick="basicPopup('https://www.google.bg/search?q=' + document.getElementById('q').value); return false" class="redir" title="Search!"> <font size=-1>
             </span>
             <input type=hidden name=domains value="google">
         <input type=hidden name=sitesearch value="google.com" checked>
@@ -100,31 +98,35 @@ popupWindow = window.open(url,'action','height=550,width=800,left=100,top=100,re
 </form>  
 <body>
   <p>
-      -----------------------------------------</p>     <p class="mainFont">Use the Calculator:</p> 
+      -----------------------------------------</p>     
+    
+    <p class="mainFont">Use the Calculator:</p> 
     <div class="calculator"></div>
-<a href="calculator.html" 
-  target="popup"   onclick="window.open('calculator.html','popup','width=552,height=357'); return false;">
+<a href="calculator" 
+  target="popup"   onclick="window.open('calculator','popup','width=552,height=357'); return false;" class="redir">
     Open!    </a>
         
-<p>-----------------------------------------</p>        <p class="mainFont">Use the Stopwatch:</p>
+<p>-----------------------------------------</p>        
+    
+    <p class="mainFont">Use the Stopwatch:</p>
         <div class="stopwatch"></div>
-<a href="stopwatch.html" 
-  target="popup"   onclick="window.open('stopwatch.html','popup','width=313,height=175'); return false;">
+<a href="stopwatch" 
+  target="popup"   onclick="window.open('stopwatch','popup','width=313,height=175'); return false;" class="redir">
     Open!    </a>
        
 <p>----------------------------------------</p>
     <p class="mainFont">Use the Timer:</p> 
     <div class="timer"></div>
-<a href="timer.html" 
-  target="popup"   onclick="window.open('timer.html','popup','width=266,height=213'); return false;">
+<a href="timer" 
+  target="popup"   onclick="window.open('timer','popup','width=266,height=213'); return false;" class="redir">
     Open!    </a>
   
 <p>----------------------------------------</p>
     
     <p class="mainFont">Roll a Die:</p> 
     <div class="dice"></div>
-<a href="dice_roller.html" 
-  target="popup"   onclick="window.open('dice_roller.html','popup','width=389,height=256'); return false;">
+<a href="dice_roller" 
+  target="popup"   onclick="window.open('dice_roller','popup','width=389,height=256'); return false;" class="redir">
     Open!    </a>
   </body>   
 <p>----------------------------------------</p>
@@ -132,9 +134,315 @@ popupWindow = window.open(url,'action','height=550,width=800,left=100,top=100,re
     <p class="mainFont">Use the Spectrogram:</p> 
     <div class="dice"></div>
 <a href="https://musiclab.chromeexperiments.com/Spectrogram/" 
-  target="popup"   onclick="window.open('https://musiclab.chromeexperiments.com/Spectrogram/','popup','width=1141,height=668'); return false;">
+  target="popup"   onclick="window.open('https://musiclab.chromeexperiments.com/Spectrogram/','popup','width=1141,height=668'); return false;" class="redir">
     Open!    </a>
   </body>   
 <p>----------------------------------------</p>
     <b><p class="mainFont">This code was made in HTML.</p>
         <p class="mainFont">Made by: VocalNutria9174</p></b> 
+
+<style>
+
+    .mainFont {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+      cursor: inherit;
+}
+    
+    .h1 {
+    font-family: 'Product Sans Regular', arial, sans-serif;
+     font-weight:normal;
+     font-style:normal;
+     }   
+    
+    
+    .button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button1 {
+  background-color: gray; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: gray; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: gray; 
+  color: black; 
+  border: 2px solid #ff6600;
+}
+
+.button3:hover {
+  background-color: #ff6600;
+  color: white;
+}
+
+.button4 {
+  background-color: gray; 
+  color: black; 
+  border: 2px solid #ffff00;
+}
+
+.button4:hover {
+  background-color: #ffff00;
+  color: white;
+}
+	
+	.button5 {
+  background-color: gray; 
+  color: black; 
+  border: 2px solid #e600e6;
+}
+
+.button5:hover {
+  background-color: #e600e6;
+  color: white;
+}
+body  {
+  background-color: #222831;
+}
+</style>    
+</body>
+<!--
+Code for Cursor
+-->
+<div class="cursor"></div>
+      <div class="navigation">  
+    </div>
+<script>
+  const updateProperties = (elem, state) => {
+  elem.style.setProperty('--x', `${state.x}px`)
+  elem.style.setProperty('--y', `${state.y}px`)
+  elem.style.setProperty('--width', `${state.width}px`)
+  elem.style.setProperty('--height', `${state.height}px`)
+  elem.style.setProperty('--radius', state.radius)
+  elem.style.setProperty('--scale', state.scale)
+}
+
+document.querySelectorAll('.cursor').forEach(cursor => {
+  let onElement
+
+  const createState = e => {
+    const defaultState = {
+      x: e.clientX,
+      y: e.clientY,
+      width: 40,
+      height: 40,
+      radius: '50%'
+    }
+
+    const computedState = {}
+
+    if (onElement != null) {
+      const { top, left, width, height } = onElement.getBoundingClientRect()
+      const radius = window.getComputedStyle(onElement).borderTopLeftRadius
+
+      computedState.x = left + width / 2
+      computedState.y = top + height / 2
+      computedState.width = width
+      computedState.height = height
+      computedState.radius = radius
+    }
+
+    return {
+      ...defaultState,
+      ...computedState
+    }
+  }
+
+  document.addEventListener('mousemove', e => {
+    const state = createState(e)
+    updateProperties(cursor, state)
+  })
+
+  document.querySelectorAll('a, button').forEach(elem => {
+    elem.addEventListener('mouseenter', () => (onElement = elem))
+    elem.addEventListener('mouseleave', () => (onElement = undefined))
+  })
+})
+
+</script>
+<style>
+  html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  cursor: url("data:image/svg+xml,%3Csvg height='6' width='6' viewBox='0 0 8 8' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='4' cy='4' fill='%23eee' r='4'/%3E%3C/svg%3E") 3 3, auto;
+}
+
+.container {
+  position: relative;
+  max-width: auto;
+  margin: auto;
+  margin-top: 4rem;
+  padding: 1rem;
+  border: 1px solid #81C995;
+  border-radius: 0.25rem;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.close, .min, .max {
+  position: absolute;
+  top: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #81C995;
+  border-radius: 50%;
+}
+.close {
+  left: 1rem;
+  background-color: #81C995;
+}
+.min {
+  left: 2.5rem;
+}
+.max {
+  left: 4rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin-top: 1.75rem;
+  padding: 0.125rem 0;
+}
+
+.margin-left-auto {
+  margin-left: auto;
+}
+
+.content {
+  padding: 1rem;
+}
+.content h1 {
+  line-height: 1;
+  margin-top: 0;
+}
+.content p {
+  line-height: 2;
+}
+
+.cursor {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--width);
+  height: var(--height);
+  transform: translate(calc(var(--x) - var(--width) / 2), calc(var(--y) - var(--height) / 2));
+  /* transition-duration: 125ms;
+  transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition-property: width, height, transform; */
+  transition: 150ms width cubic-bezier(0.39, 0.575, 0.565, 1),
+              150ms height cubic-bezier(0.39, 0.575, 0.565, 1),
+              150ms transform cubic-bezier(0.39, 0.575, 0.565, 1);
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+}
+@media (pointer: fine) {
+  .cursor {
+    display: block;
+  }
+}
+.cursor::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius);
+  border: 2px solid #81C995;
+  opacity: var(--scale);
+  -webkit-transform: scale(var(--scale));
+          transform: scale(var(--scale));
+  transition: 300ms opacity cubic-bezier(0.39, 0.575, 0.565, 1),
+              300ms transform cubic-bezier(0.39, 0.575, 0.565, 1),
+              150ms border-radius cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+html:not(html:hover) .cursor::after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.redir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: none;
+  border-radius: 50%;
+  cursor: inherit;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  color: #eee;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  cursor: inherit;
+  margin: -0.125rem -0.375rem;
+  padding: 0.125rem 0.375rem;
+  background: none;
+  border-radius: 0.25rem;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+.btn:hover {
+  text-decoration-line: none;
+}
+</style>
+</html>
