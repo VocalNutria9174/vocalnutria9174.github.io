@@ -1,103 +1,160 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Loading...</title>
-	<meta name="description" content="Loading..">
+<html>
+	<head>
+<title>Loading...</title>
 <link rel="icon" href="https://lolfilter.com/files/thumbnails/729124027022592.png">
-	<!--iOS -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+<!--Hey! This is the original version
+of Simple CSS Waves-->
 
+<div class="header">
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!--Content before waves-->
+<div class="inner-header flex">
+<!--Just the logo.. Don't mind this-->
+<img src="https://lolfilter.com/files/thumbnails/729124027022592.png" width="95" height="95">
+<h1> Welcome to the Epic Site</h1>
+</div>
 
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/main.css">
-	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
-	<style type="text/css">
-	.back-link a {
-		color: #4ca340;
-		text-decoration: none; 
-		border-bottom: 1px #4ca340 solid;
-	}
-	.back-link a:hover,
-	.back-link a:focus {
-		color: #408536; 
-		text-decoration: none;
-		border-bottom: 1px #408536 solid;
-	}
-	h1 {
-		height: 100%;
-		/* The html and body elements cannot have any padding or margin. */
-		margin: 0;
-		font-size: 14px;
-		font-family: 'Open Sans', sans-serif;
-		font-size: 32px;
-		margin-bottom: 3px;
-	}
-	.entry-header {
-		text-align: left;
-		margin: 0 auto 50px auto;
-		width: 80%;
-        max-width: 978px;
-		position: relative;
-		z-index: 10001;
-        font-family: 'Google Sans', Arial, sans-serif;
-	}
-	#demo-content {
-		padding-top: 100px;
-	}
-	</style>
-</head>
-<body class="demo">
+<!--Waves Container-->
+<div>
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+<defs>
+<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+</defs>
+<g class="parallax">
+<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+</g>
+</svg>
+</div>
+<!--Waves end-->
 
+</div>
+<!--Header ends-->
+
+<!--Content starts-->
+<div class="content flex">
+<p>Please Wait...</p>
+</div>
+	</head>
+	<body>
+<!--Content ends-->
 <style>
-.center {
-  margin: auto;
-  width: 60%;
-  border: 3px solid #00e600;
-  padding: 10px;
-  font-family: 'Open Sans', sans-serif;
+  @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
 }
 
-.down {
-  margin: auto;
-  width: 45%;
-  border: 2.5px solid #73AD21;
-  padding: 10px;
-  font-family: 'Open Sans', sans-serif;
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
+}
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
 }
 </style>
-	
-	<div id="demo-content">
-		<header class="entry-header">
-			<!-- .nav-single -->
-<div class="center">
-  <p>Welcome to the Epic Site!!!</p>
-</div>
-<p></p>
-<div class="down">
-<p>Please wait...</p>
-</div>
-<!-- dont add any text after here -->
-		<div id="loader-wrapper">
-			<div id="loader"></div>
-            
-			<div class="loader-section section-left"></div>
-            <div class="loader-section section-right"></div>
-            
-		</div>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-	<script src="js/main.js"></script>
+
 <script>
-    setTimeout(function () {
+   setTimeout(function () {
    window.location.href = "home"; 
 }, 6000); 
-        </script>
-</body>
+</script>
+	</body>
 </html>
