@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Video-Game-Controller-Icon-D-Edit.svg/1200px-Video-Game-Controller-Icon-D-Edit.svg.png"> 
-    
-<div class="button button1">    
-    <a href="home">Home</a>
-    </div>
-<div class="button button3">
-<a href="clock">Time</a>
-</div>
-    <div class="button button4">
-    <a href="tools">Tools</a>
-    </div>
+<body>
+
+  <a href="Home" class="button button1">Home</a>
+  
+<a href="clock" class="button button3">Time</a>
+  
+    <a href="tools" class="button button4">Tools</a>
+
 <style>
 .mainFont {
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }   
    
     .subFont {
@@ -31,23 +32,34 @@
   font-size: 16px;
   margin: 4px 2px;
   transition-duration: 0.4s;
-  cursor: pointer;
+  cursor: inherit;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .button1 {
-  background-color: white; 
+  background-color: gray; 
   color: black; 
-  border: 2px solid #ff00ff;
+  border: 2px solid #4CAF50;
 }
 
 .button1:hover {
-  background-color: #ff00ff;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: gray; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
   color: white;
 }
 
 .button3 {
-  background-color: white; 
+  background-color: gray; 
   color: black; 
   border: 2px solid #ff6600;
 }
@@ -57,8 +69,8 @@
   color: white;
 }
 
-    .button4 {
-  background-color: white; 
+.button4 {
+  background-color: gray; 
   color: black; 
   border: 2px solid #ffff00;
 }
@@ -67,12 +79,23 @@
   background-color: #ffff00;
   color: white;
 }
-    body  {
-  background-image: url("snow64b.gif");
-  background-color: #cccccc;
+	
+	.button5 {
+  background-color: gray; 
+  color: black; 
+  border: 2px solid #e600e6;
 }
-</style>
-<h1 class="mainFont">Welcome to Games!</h1>
+
+.button5:hover {
+  background-color: #e600e6;
+  color: white;
+}
+body  {
+  background-color: #222831;
+}
+</style>    
+  
+  <h1 class="mainFont">Welcome to Games!</h1>
 <p class="mainFont">To play a game, under the game you want to play, press the "Play!" button to show the game! To close the game, click the button again. Have Fun, and Enjoy!</p>     
     <p class="subFont">Need help? Go to the Games Trouble Shooting page here:</p>    
 <div class="tbleshoot"></div>
@@ -84,7 +107,7 @@
 
 </head>
 <body>
-    
+  <div class="mainFont">
     <p style="color:lime" class="mainFont">Play Dig 2 China!</p>
   <div class="dig"></div>
 <a href="https://uploads.ungrounded.net/alternate/826000/826461_alternate_18077_r17.zip" 
@@ -332,4 +355,223 @@
     </body>    
     <p class="mainFont">This code was made in HTML.</p>
     <p class="mainFont">Made by: VocalNutria9174</p> 
-    
+  </div>
+</body>
+<!--
+Code for Cursor
+-->
+<div class="cursor"></div>
+      <div class="navigation">  
+    </div>
+<script>
+  const updateProperties = (elem, state) => {
+  elem.style.setProperty('--x', `${state.x}px`)
+  elem.style.setProperty('--y', `${state.y}px`)
+  elem.style.setProperty('--width', `${state.width}px`)
+  elem.style.setProperty('--height', `${state.height}px`)
+  elem.style.setProperty('--radius', state.radius)
+  elem.style.setProperty('--scale', state.scale)
+}
+
+document.querySelectorAll('.cursor').forEach(cursor => {
+  let onElement
+
+  const createState = e => {
+    const defaultState = {
+      x: e.clientX,
+      y: e.clientY,
+      width: 40,
+      height: 40,
+      radius: '50%'
+    }
+
+    const computedState = {}
+
+    if (onElement != null) {
+      const { top, left, width, height } = onElement.getBoundingClientRect()
+      const radius = window.getComputedStyle(onElement).borderTopLeftRadius
+
+      computedState.x = left + width / 2
+      computedState.y = top + height / 2
+      computedState.width = width
+      computedState.height = height
+      computedState.radius = radius
+    }
+
+    return {
+      ...defaultState,
+      ...computedState
+    }
+  }
+
+  document.addEventListener('mousemove', e => {
+    const state = createState(e)
+    updateProperties(cursor, state)
+  })
+
+  document.querySelectorAll('a, button').forEach(elem => {
+    elem.addEventListener('mouseenter', () => (onElement = elem))
+    elem.addEventListener('mouseleave', () => (onElement = undefined))
+  })
+})
+
+</script>
+<style>
+  html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  cursor: url("data:image/svg+xml,%3Csvg height='6' width='6' viewBox='0 0 8 8' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='4' cy='4' fill='%23eee' r='4'/%3E%3C/svg%3E") 3 3, auto;
+}
+
+.container {
+  position: relative;
+  max-width: auto;
+  margin: auto;
+  margin-top: 4rem;
+  padding: 1rem;
+  border: 1px solid #81C995;
+  border-radius: 0.25rem;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.close, .min, .max {
+  position: absolute;
+  top: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #81C995;
+  border-radius: 50%;
+}
+.close {
+  left: 1rem;
+  background-color: #81C995;
+}
+.min {
+  left: 2.5rem;
+}
+.max {
+  left: 4rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin-top: 1.75rem;
+  padding: 0.125rem 0;
+}
+
+.margin-left-auto {
+  margin-left: auto;
+}
+
+.content {
+  padding: 1rem;
+}
+.content h1 {
+  line-height: 1;
+  margin-top: 0;
+}
+.content p {
+  line-height: 2;
+}
+
+.cursor {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--width);
+  height: var(--height);
+  transform: translate(calc(var(--x) - var(--width) / 2), calc(var(--y) - var(--height) / 2));
+  /* transition-duration: 125ms;
+  transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition-property: width, height, transform; */
+  transition: 150ms width cubic-bezier(0.39, 0.575, 0.565, 1),
+              150ms height cubic-bezier(0.39, 0.575, 0.565, 1),
+              150ms transform cubic-bezier(0.39, 0.575, 0.565, 1);
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+}
+@media (pointer: fine) {
+  .cursor {
+    display: block;
+  }
+}
+.cursor::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius);
+  border: 2px solid #81C995;
+  opacity: var(--scale);
+  -webkit-transform: scale(var(--scale));
+          transform: scale(var(--scale));
+  transition: 300ms opacity cubic-bezier(0.39, 0.575, 0.565, 1),
+              300ms transform cubic-bezier(0.39, 0.575, 0.565, 1),
+              150ms border-radius cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+html:not(html:hover) .cursor::after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.redir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: none;
+  border-radius: 50%;
+  cursor: inherit;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  color: #eee;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  cursor: inherit;
+  margin: -0.125rem -0.375rem;
+  padding: 0.125rem 0.375rem;
+  background: none;
+  border-radius: 0.25rem;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+.btn:hover {
+  text-decoration-line: none;
+}
+</style>
+
+</html>
