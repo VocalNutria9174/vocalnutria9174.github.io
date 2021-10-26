@@ -75,27 +75,273 @@
 
 
 </head>                    
-<script>
-// JavaScript popup window function
-function basicPopup(url) {
-popupWindow = window.open(url,'action','height=550,width=800,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes')
+<style type="text/css">
+button::-moz-focus-inner {
+    /* fix buttons in FF */
+    border: 0;
+    padding: 0;
 }
-</script>            
-    <img src="google_search_logo.jpg" height="250" width="455"/>
-    
-    <form method=GET action="https://www.google.com/search">
-    <input type=hidden name=ie value=UTF-8>
-    <input type=hidden name=oe value=UTF-8>
-    <table bgcolor="#FFFFFF">
-        <input Type=text name=q id=q size=31 maxlength=255 value="" title="Search Bar" placeholder="Search the Web Via Google!">
-        <input type=image src="search-icon.png" value="Search" height="50" width="51" align="center" onclick="basicPopup('https://www.google.bg/search?q=' + document.getElementById('q').value); return false" class="redir" title="Search!"> <font size=-1>
-            </span>
-            <input type=hidden name=domains value="google">
-        <input type=hidden name=sitesearch value="google.com" checked>
-    </font>
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    /* Remove button margin in webkit */
+    button{
+        margin: 0;
+    }
+}
+.acchide {
+    text-indent: -999em;
+    display: block;
+}
+/* one-form */
+input[type="search"] {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  border-radius: 2px;
+  width: 100%;
+  padding: 0.5em 0.6em;
+  margin: 0 0 0.5em 0;
+  display: block;
+  border: 1px solid #ccc;
+  font-weight: inherit;
+  -webkit-transition: 0.3s linear border;
+  -moz-transition: 0.3s linear border;
+  -ms-transition: 0.3s linear border;
+  -o-transition: 0.3s linear border;
+  transition: 0.3s linear border;
+}
+input[type="search"]:focus {
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+  border-color: #129FEA;
+}
+/* end one-form */
 
-    </table>
-</form>  
+/* one-list */
+.one-list-inline {
+  display: inline;
+  overflow: hidden;
+  margin: 0 0 0 0.3em;
+  padding: 0;
+}
+.one-list-inline li {
+  list-style: none;
+  display: inline-block;
+}
+.one-list-inline li:after {
+  margin: 0 0.15em;
+}
+.one-list-inline li:last-child:after {
+  content: '';
+}
+/* end one-list */
+
+/* one-box */
+.one-box {
+  padding: 20px;
+  margin: 0 0 2em 0;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px;
+}
+.one-box-bordered {
+  border: 1px solid #ccc;
+}
+/* end one-box */
+
+.search-box {
+    margin: 1em;
+    border-color: #eee;
+
+    -webkit-transition: margin 200ms ease, padding 200ms ease;
+    -moz-transition: margin 200ms ease, padding 200ms ease;
+    transition: margin 200ms ease, padding 200ms ease;
+}
+.ubuntu-branding {
+    background: url(https://start.ubuntu.com/12.04/sprite.png) no-repeat;
+    background-position: 0px -251px;
+    background-color: #aea79f;
+    height: 40px;
+    border-radius: 5px 5px 0 0;
+    margin: -21px;
+    margin-bottom: 20px;
+}
+.logo {
+    margin: 0 0 15px 0;
+}
+.logo a {
+    font-size: 1px;
+    display: block;
+    text-indent: -9999px;
+    background: url(https://start.ubuntu.com/12.04/sprite.png) no-repeat;
+    background-position: -10px -310px;
+    padding: 0;
+    height: 38px;
+    width: 109px;
+    position: relative;
+    -webkit-transition: margin 200ms ease;
+    -moz-transition: margin 200ms ease;
+    transition: margin 200ms ease;
+}
+.logo,
+.search-form {
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (min-width: 665px) {
+    .wrapper {
+        max-width: 665px;
+        margin: 0 auto;
+    }
+    .search-box {
+        padding-bottom: 100px;
+        margin-top: 65px;
+    }
+    .logo a {
+        margin-top: 65px;
+    }
+    .search-form {
+        text-align: center;
+    }
+}
+.search-form {
+    padding-right: 75px;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.search-input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: inherit;
+}
+.search-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #4d90fe;
+    background: -moz-linear-gradient(top, #4d90fe 0%, #4787ed 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4d90fe), color-stop(100%,#4787ed));
+    background: -webkit-linear-gradient(top, #4d90fe 0%,#4787ed 100%);
+    background: linear-gradient(to bottom, #4d90fe 0%,#4787ed 100%);
+    border: 1px solid #3079ED;
+    border-radius: 2px;
+    color: #FFFFFF;
+    cursor: default;
+    font-weight: bold;
+    height: 37px;
+    line-height: 37px;
+    width: 70px;
+    margin-left: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    -moz-user-select: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#sspan {
+    background: url(https://start.ubuntu.com/12.04/sprite.png) no-repeat;
+    background-position: -10px -692px;
+    display: block;
+    height: 17px;
+    width: 14px;
+    margin: auto;
+    position: relative;
+    top: 8px;
+}
+.external-links {
+    margin: 1em;
+}
+.external-links li {
+    text-align: left;
+    display: block;
+    margin: 0 1em 1em 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+}
+.external-links li:after {
+    margin: 0;
+}
+.external-links a {
+    display: block;
+    text-decoration: none;
+    color: gray;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 35px;
+}
+.external-links a::after {
+    content: " ›";
+}
+.external-links a:hover {
+    color: #e24912;
+}
+@media screen and (min-width: 665px) {
+    .external-links {
+        width: 595px;
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+    .external-links li {
+        display: inline-block;
+        margin: 0 1em 0 0;
+        padding: 0;
+        border: none;
+    }
+    .external-links li:last-child {
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    .external-links li a {
+        display: inline-block;
+    }
+}
+
+  .glogo {
+   display: block;
+    margin-left: auto;
+   margin-right: auto;
+  }
+</style>
+
+    <div class="wrapper">
+      
+        <div class="search-box one-box one-box-bordered">
+   <a href="https://google.com">
+          <img class="glogo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" width="198" alt="Google Logo"/>
+          </a>
+          <br>
+            <form method="get" class="search-form" action="https://www.google.com/search" name="search">
+                <input type="search" class="search-input" name="q" value="" x-webkit-speech id="sbi" /><!-- eliminate whitespace
+                --><button id="sbtn" class="search-button" type="submit"><span id="sspan"></span><span class="acchide">Search</span></button>
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="hidden" name="sa" value="Search" />
+                <input type="hidden" name="channel" value="fe">
+                <input type="hidden" name="client" value="browser-ubuntu">
+                <input title="search" type="hidden" name="hl" value="en" />
+            </form>
+        </div><!-- close search-box -->
+    </div><!-- close wrapper -->
+<script type="text/javascript">
+//<![CDATA[
+(function focus_search() {
+    function search_select(e) {
+        if(e.value.length > 0) {
+            e.select();
+        }
+        e.select();
+    }
+
+    sbi = document.getElementById('sbi');
+    sbi.focus();
+    search_select(sbi);
+})();
+//]]>
+</script> 
 <body>
   <p>
       -----------------------------------------</p>     
