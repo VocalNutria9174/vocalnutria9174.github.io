@@ -1,4 +1,4 @@
-# NOTICE: Updates are being added often, so keep checking out this github page for more info!!!
+# NOTICE: Updates are being added often, so keep checking out this Github page for more info!!!
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Welcome to the Epic Site!
 
