@@ -1,9 +1,8 @@
 <!-- Gorilla-Type is based off of the original monkeytype from CodePen. -->
 <!-- https://codepen.io/Miodec/pen/wvaQQRR -->
-
 <!-- Remade by: VocalNutria9174 -->
 <!-- [https://github.com/VocalNutria9174/epic-site] -->
-                              <!-- [|=)] -->
+                   <!-- [|=)] -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +53,7 @@
         <div class="mainLogo">gorilla-type</div>
       </div>
       <div id="menu">
-        <div onclick="restartTest();" title="New Test" class="button" tabindex="2">
+        <div onclick="restartTest();" title="New Test!" class="button" tabindex="2">
           <div class="icon">
             <i class="fas fa-fw fa-keyboard"></i>
           </div>
@@ -62,20 +61,20 @@
             Test
           </div>
         </div>
-        <div class="button" tabindex="2">
+        <div onclick="readmeRedir();" title="Info Page!" class="button" tabindex="2">
           <div class="icon">
             <i class="fas fa-fw fa-info"></i>
           </div>
           <div class="text">
             About
-          </div>
+              </div>
         </div>
         <div class="button" tabindex="2">
           <div class="icon">
-            <i class="fas fa-fw fa-cog"></i>
+            <i title="Open Command Line!" onclick="showCommandLine()" class="fas fa-fw fa-cog"></i>
           </div>
           <div class="text">
-            Settings
+            Commands
           </div>
         </div>
       </div>
@@ -143,8 +142,9 @@
   <div id="liveWpm" class="hidden">-</div>
 </div>
 <div id="bottom">
-  <img src="gorllia-icon.png" title="A Good Gorilla! =]" width="20" height="20"> Created by <a href="https://codepen.io/Miodec/pen/wvaQQRR">Miodec</a><br>
-  <img src="gorllia-icon.png" title="Another Good Gorilla! =]" width="20" height="20"> Recreated by <a href="https://github.com/VocalNutria9174/epic-site">VocalNutria9174</a><br>
+  <img src="gorilla-icon.png" title="A Good Gorilla! =]" width="20" height="20"> Created by <a href="https://codepen.io/Miodec/pen/wvaQQRR/">Miodec</a> <img src="gorilla-icon.png" title="A Good Gorilla! =]" width="20" height="20"><br>
+  <img src="gorilla-icon.png" title="Another Good Gorilla! =]" width="20" height="20"> Recreated by <a href="https://github.com/VocalNutria9174/epic-site/">VocalNutria9174</a> <img src="gorilla-icon.png" title="Another Good Gorilla! =]" width="20" height="20"><br>
+  <img src="gorilla-icon.png" title="Another Gorilla, but even better! =]" width="20" height="20"> - <a href="https://github.com/VocalNutria9174/gorilla-type/" title="Github is PogChamp!">Github</a> - <img src="gorilla-icon.png" title="Oh would you look at that, another Gorilla! =]" width="20" height="20"><br>
 </div>
 </div>
 <br>
@@ -360,7 +360,22 @@ var words = [
 "type",
 "escape",
 "study",
-"social"];
+"social",
+"result",
+"jump",
+"left",
+"north",
+"south",
+"east",
+"west",
+"quick",
+"vigilant",
+"dog",
+"cat",
+"word",
+"drink",
+"slide",
+"cloud"];
 
 let wordsList = [];
 let currentWordIndex = 0;
@@ -1171,6 +1186,14 @@ let commands = {
     exec: () => {
       currentCommands = commandsWordCount;
       showCommandLine();
+    } },
+  
+  {
+    id: "",
+    display: "Close Command Line...",
+    subgroup: true,
+    exec: () => {
+      hideCommandLine();
     } }] };
 
 
@@ -1393,6 +1416,10 @@ function displayFoundCommands() {
 }
   $(window).on('load', function() {
    restartTest();});
+    
+    function readmeRedir() {
+        window.location.href = "https://github.com/VocalNutria9174/gorilla-type/blob/main/README.md";
+    }
     </script>
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
@@ -1405,7 +1432,7 @@ function displayFoundCommands() {
   --roundness: 0.25rem;
 }
 
-/* 
+/*
 :root {
   --main-color: #111;
   --sub-color: #444;
@@ -1927,14 +1954,14 @@ key {
     
 .mainLogo {
   font-family: "Roboto Mono";
-  -webkit-animation: rainbow 5s infinite; 
+  -webkit-animation: rainbow 5s infinite;
   -ms-animation: rainbow 5s infinite;
-  animation: rainbow 5s infinite; 
+  animation: rainbow 5s infinite;
 }
     
 @-webkit-keyframes rainbow{
-  0%{color: orange;}	
-  10%{color: purple;}	
+  0%{color: orange;}
+  10%{color: purple;}
 	20%{color: red;}
   30%{color: CadetBlue;}
 	40%{color: yellow;}
@@ -1947,8 +1974,8 @@ key {
 }
     
 @-ms-keyframes rainbow{
-   0%{color: orange;}	
-  10%{color: purple;}	
+   0%{color: orange;}
+  10%{color: purple;}
 	20%{color: red;}
   30%{color: CadetBlue;}
 	40%{color: yellow;}
@@ -1961,8 +1988,8 @@ key {
 }
     
 @keyframes rainbow{
-    0%{color: orange;}	
-  10%{color: purple;}	
+    0%{color: orange;}
+  10%{color: purple;}
 	20%{color: red;}
   30%{color: CadetBlue;}
 	40%{color: yellow;}
