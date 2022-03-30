@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<title>Five Nights at Winston's</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="A fnaf fan game [made by: LAX1DUDE - https://g.eags.us/] where you play as the janitor at LAX1DUDE's school while these erasers with creepy faces and paperclip limbs hunt you down">
+<link type="image/x-icon" rel="shortcut icon" href="https://g.eags.us/fnaw/favicon.ico">
+</head>
+<body>
+  <div id="html_embed_widget_19383" class="html_embed_widget embed_wrapper" style="text-align:center;">
+  <div class="game_frame game_loaded" style="width:1097px;height:605px">
+    <button title="Enter fullscreen" id="fullscreen_btn" class="fullscreen_btn">
+    <img src="https://itch.io/static/images/enlarge.svg?1644934567"/></button>
+  <iframe mozallowfullscreen="true" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr" frameborder="0" src="https://g.eags.us/fnaw/" msallowfullscreen="true" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" id="game_drop" allowtransparency="true"></iframe>
+  </div>
+</div>
+
+<style>
+  .fullscreen_btn{display:none}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe{display:none}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-webkit-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-moz-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-o-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:fullscreen{display:block}.html_embed_widget .game_frame:not(.game_loaded) .restore_wrapper{display:none}.html_embed_widget .game_frame iframe{height:0;width:0;border:0;box-sizing:border-box;max-height:100%;max-width:100%;min-height:100%;min-width:100%}.html_embed_widget .fullscreen_btn{opacity:.4;position:absolute;bottom:0;right:0;margin:8px;font-size:16px;display:block;transition:opacity 0.4s;background:none;padding:0;border:0;cursor:pointer}.html_embed_widget .fullscreen_btn img{display:block;width:30px;height:30px}.html_embed_widget .fullscreen_btn:hover{opacity:.8}.game_frame{margin:0 auto;position:relative;background-position:50% 50%}.html_embed_widget .game_frame.maximized{margin:0;width:100% !important;height:100% !important;position:fixed;top:0;left:0;z-index:1000;background-image:none}.html_embed_widget .game_frame.maximized .restore_wrapper{display:none}.html_embed_widget .game_frame.game_pending .fullscreen_btn{display:none}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe{display:none}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-webkit-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-moz-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:-o-full-screen{display:block}.html_embed_widget .game_frame.start_maximized.game_loaded:not(.maximized) iframe:fullscreen{display:block}.html_embed_widget .game_frame:not(.game_loaded) .restore_wrapper{display:none}.html_embed_widget .game_frame iframe{height:0;width:0;border:0;box-sizing:border-box;max-height:100%;max-width:100%;min-height:100%;min-width:100%}
+</style>
+
+<script>
+(function(window, document){
+        var $ = function(selector,context){return(context||document).querySelector(selector)};
+
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+        var fullscreen = function(elem) {
+            var prefix;
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) {
+              prefix = domPrefixes[i].toLowerCase();
+
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+
+            return false;
+        };
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));
+
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+
+        $("#fullscreen_btn").addEventListener("click", function(){
+            // iframe fullscreen and non video elements in webkit use request over enter
+            iframe[fullscreenother]();
+        }, false);
+    })(this, this.document);
+</script>
+  </body>
+</html>
