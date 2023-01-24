@@ -1,50 +1,174 @@
 <!-- Originaly from Ruffle:
-https://ruffle.rs/demo -->
+https://ruffle.rs/demo/ -->
+<!-- Remade by: VocalNutria9174 - https://github.com/VocalNutria9174/-->
 <!DOCTYPE html>
-<html data-ruffle-optout>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Ruffle Player</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
-        <link rel="icon" href="https://ruffle.rs/assets/favicon-32.png" sizes="32x32">
-        <link rel="icon" href="https://ruffle.rs/assets/favicon-64.png" sizes="64x64">
-        <link rel="icon" href="https://ruffle.rs/assets/favicon-180.png" sizes="180x180">
-    </head>
-    <body>
-        <div id="nav">
-            <div id="title">
-                <a href="https://ruffle.rs/" target="_blank">
-                    <img
-                        src="https://ruffle.rs/assets/logo.svg"
-                        alt="Ruffle"
-                        data-canonical-src="https://ruffle.rs/assets/logo.svg" />
-                </a>
-          </div>
-                <a href="https://github.com/VocalNutria9174/ruffle-player" style="color:#81c995;">Github</a>
-            
-            <div id="file-picker">
-                <div id="local-file-container">
-                    <span>Choose a SWF File!:</span>
-                    <input type="file" accept=".swf,.spl" id="local-file" />
-                </div>
-                <div id="sample-swfs-container" class="hidden">
-                    <span id="sample-swfs-label">Sample SWF:</span>
-                    <select id="sample-swfs">
-                        <option value="none">None</option>
-                        <optgroup id="anim-optgroup" label="Animations"></optgroup>
-                        <optgroup id="games-optgroup" label="Games"></optgroup>
-                    </select>
-                    <div id="author-container" class="hidden">
-                        <span>Author: </span><a href="#" target="_blank" id="author"></a>
-                    </div>
-                </div>
-            </div>
+<html data-ruffle-optout="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ruffle web player</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="icon" href="https://ruffle.rs/assets/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="https://ruffle.rs/assets/favicon-64.png" sizes="64x64">
+  <link rel="icon" href="https://ruffle.rs/assets/favicon-180.png" sizes="180x180">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <div id="nav">
+    <div id="title">
+      <a href="https://ruffle.rs/" target="_blank"><img src="https://ruffle.rs/assets/logo.svg" alt="Ruffle"
+          data-canonical-src="https://ruffle.rs/assets/logo.svg"></a>
+    </div>
+    <a href="https://github.com/VocalNutria9174/ruffle-player" style="color:#81c995;">Github</a>
+    <p><b>NOTE: (currently,) Ruffle Only Supports Action Script 1 & 2! Support for Action Script 3 is comming soon!!!</b></p>
+
+    <div id="file-picker">
+      <div id="local-file-container">
+        <span id="local-file-static-label">Local SWF:</span>
+        <input type="file" accept=".swf,.spl" id="local-file" aria-describedby="local-file-static-label"> <label
+          for="local-file" id="local-file-label">Select File</label>
+        <span id="local-file-name">No file selected.</span>
+      </div>
+      <div id="sample-swfs-container" class="hidden">
+        <span id="sample-swfs-label">Sample SWF:</span> <select id="sample-swfs" aria-describedby="sample-swfs-label">
+          <optgroup id="anim-optgroup" label="Animations">
+          </optgroup>
+          <optgroup id="games-optgroup" label="Games">
+          </optgroup>
+        </select>
+        <div id="author-container" class="hidden">
+          <span>Author:</span> <a href="#" target="_blank" id="author"></a>
         </div>
-        <div style="background-color:#323437;" id="main">
-            <div id="overlay" class="hidden"></div>
-            <div id="prompt">Select or drag an SWF File to Play!</div>
-        </div>
-        <script src="https://ruffle.rs/demo/index.js"></script>
-    </body>
+      </div> 
+      <svg width="20px" id="open-modal" viewbox="0 0 416.979 416.979">
+        <path fill="white"
+          d="M356.004 61.156c-81.37-81.47-213.377-81.551-294.848-.182-81.47 81.371-81.552 213.379-.181 294.85 81.369 81.47 213.378 81.551 294.849.181 81.469-81.369 81.551-213.379.18-294.849zM237.6 340.786a5.821 5.821 0 0 1-5.822 5.822h-46.576a5.821 5.821 0 0 1-5.822-5.822V167.885a5.821 5.821 0 0 1 5.822-5.822h46.576a5.82 5.82 0 0 1 5.822 5.822v172.901zm-29.11-202.885c-18.618 0-33.766-15.146-33.766-33.765 0-18.617 15.147-33.766 33.766-33.766s33.766 15.148 33.766 33.766c0 18.619-15.149 33.765-33.766 33.765z">
+        </path>
+      </svg>
+    </div>
+  </div>
+  <div id="main" aria-label="Select a demo or drag an SWF" style="background-color:#323437;"
+    class="html_embed_widget embed_wrapper">
+    <ruffle-player id="player">
+      <p
+        style="color:orange;text-align:center;position:absolute;bottom:0;left:0;margin:2.5px;font-size:18.5px;display:block;">
+        <b>select a .swf file to begin.</b>
+      </p><button title="Enter/Exit Fullscreen Mode!" id="fullscreen_btn">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg id="fullscreen_btn" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          xmlns="http://www.w3.org/2000/svg" height="38.72" width="38.72" version="1.1"
+          xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"
+          viewBox="0 0 708.7207 708.7207">
+          <path id="path4282"
+            d="m15 5a10.001 10.001 0 0 0 -10 10v678.72a10.001 10.001 0 0 0 10 10h678.72a10.001 10.001 0 0 0 10 -10v-678.72a10.001 10.001 0 0 0 -10 -10h-678.72zm10 20h658.72v658.72h-658.72v-658.72zm73.359 73.359v208l80-80 96 96 48-48-96-96 80-80h-208zm304 0 80 80-96 96 48 48 96-96 80 80v-208h-208zm-128 288-96 96-80-80v208h208l-80-80 96-96-48-48zm160 0-48 48 96 96-80 80h208v-208l-80 80-96-96z"
+            stroke="#000" stroke-width="10" fill="#fff" />
+        </svg>
+      </button>
+      <script>
+        function enterFullScreen(element) {
+          if (element.requestFullscreen) {
+            element.requestFullscreen();
+          } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();     // Firefox
+          } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();  // Safari
+          } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();      // IE/Edge
+          }
+        };
+
+        let btn = document.getElementById("fullscreen_btn");
+        btn.addEventListener("click", function () {
+          let player = document.querySelector('ruffle-player');
+          enterFullScreen(player);
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+          }
+        });
+
+        document.addEventListener('fullscreenchange', (event) => {
+          if (document.fullscreenElement) {
+            console.log('Entered fullscreen:', document.fullscreenElement);
+          } else {
+            console.log('Exited fullscreen.');
+          }
+        });
+      </script>
+      <style>
+        #fullscreen_btn {
+          opacity: .5;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          margin: 2.5px;
+          font-size: 18.5px;
+          display: block;
+          transition: opacity 0.4s;
+          background: none;
+          padding: 0;
+          border: 0;
+          cursor: pointer
+        }
+      </style>
+    </ruffle-player>
+    <div id="overlay" class="hidden"></div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div id="overlay" class="hidden"></div>
+  </div>
+  <div id="metadata-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">❌</span>
+      <table id="metadata">
+        <tr>
+          <td>uncompressed length</td>
+          <td><span class="metadata" id="uncompressedLength">Loading</span></td>
+        </tr>
+        <tr>
+          <td>SWF version</td>
+          <td><span class="metadata" id="swfVersion">Loading</span></td>
+        </tr>
+        <tr>
+          <td>FP version</td>
+          <td><span class="metadata" id="flashVersion">Loading</span></td>
+        </tr>
+        <tr>
+          <td>actionscript 3</td>
+          <td><span class="metadata" id="isActionScript3">Loading</span></td>
+        </tr>
+        <tr>
+          <td>total frames</td>
+          <td><span class="metadata" id="numFrames">Loading</span></td>
+        </tr>
+        <tr>
+          <td>frame rate</td>
+          <td><span class="metadata" id="frameRate">Loading</span></td>
+        </tr>
+        <tr>
+          <td>SWF width</td>
+          <td><span class="metadata" id="width">Loading</span></td>
+        </tr>
+        <tr>
+          <td>SWF height</td>
+          <td><span class="metadata" id="height">Loading</span></td>
+        </tr>
+        <tr>
+          <td>SWF background color</td>
+          <td><input class="metadata" type="color" id="backgroundColor" disabled value="#FFFFFF"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script src="https://ruffle.rs/demo/index.js"></script>
+</body>
+
 </html>
