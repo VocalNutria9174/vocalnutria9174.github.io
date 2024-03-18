@@ -2,12 +2,9 @@
 # NOTICE: Updates are being added every so often, so keep checking out this Github page for more info!!!
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Welcome to the Epic Site! [v1.13.9]
-## Yes, this site is kind of dead, but I am working on something that I could add soon, so yeah! Stick around for when I do eventually release it!!
+## my first ever public website/project using HTML5
 
-This is my first ever website!
-Enjoy!
+started this project on github about 3 years ago, and I just kept going...
 
-(If you have comments, suggestions, or problems, Please let me know in the issues page. Thanks!)
-:)
 
-Fun Fact: When I first started this site, it took me about 2½ MONTHS to get it to the way it was for the first release (I went through so. much. pain.)!
+(the project is mostly dead, so don't really expect anything interesting to happen anytime soon.)
